@@ -1,0 +1,7 @@
+.body__container {
+  display: grid;
+  grid-template-areas: "navbar" "header" "productList" "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 7rem minmax(110vh, min-content) min-content;
+  height: 100%;
+}

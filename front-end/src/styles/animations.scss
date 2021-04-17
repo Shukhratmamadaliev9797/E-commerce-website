@@ -1,0 +1,10 @@
+@keyframes fall_before {
+  100% {
+    transform: translateY(500%);
+  }
+}
+@keyframes fall_after {
+  100% {
+    transform: translateY(0%);
+  }
+}

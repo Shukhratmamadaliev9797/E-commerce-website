@@ -1,0 +1,46 @@
+.profile {
+  display: grid;
+  width: 80%;
+  margin: 1rem auto;
+  grid-template-rows: min-content min-content;
+  &__pictureBox {
+    border-radius: 5px;
+    display: flex;
+    background-color: #eee;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    border: 1px solid #ddd;
+    img {
+      width: 25rem;
+      margin: 2rem;
+      border-radius: 50%;
+    }
+    h2 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: #798777;
+    }
+  }
+  &__detailsBox {
+    display: grid;
+    grid-template-columns: 40% 65%;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    li {
+      color: #444743;
+      font-size: 1.6rem;
+      margin: 1rem;
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  &__personalBox {
+    padding: 3rem;
+    border-right: 1px solid #ddd;
+  }
+}

@@ -1,0 +1,71 @@
+.navbar {
+  &__container {
+    grid-area: navbar;
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(0, 107, 141, 1) 0%,
+      rgba(0, 69, 91, 1) 90%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  &__logo-link {
+    text-decoration: none;
+    color: #f4f9f9;
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-family: "Indie Flower", cursive;
+    span {
+      color: #cc561e;
+    }
+  }
+  &__menu {
+    display: flex;
+    &-items {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      li {
+        position: relative;
+        padding: 2rem 2rem;
+        margin-right: 2rem;
+        &:hover > .navbar__dropdown {
+          opacity: 1;
+          z-index: 1;
+          top: 6.68rem;
+        }
+      }
+    }
+  }
+  &__menu-link {
+    text-decoration: none;
+    color: #f4f9f9;
+    font-size: 1.7rem;
+  }
+
+  &__dropdown {
+    position: absolute;
+    width: 17rem;
+    top: 8rem;
+    right: -4rem;
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(0, 107, 141, 1) 0%,
+      rgba(0, 69, 91, 1) 90%
+    );
+
+    opacity: 0;
+    transition: all 0.2s linear;
+    li {
+      cursor: pointer;
+    }
+  }
+}
+.fas {
+  margin-right: 0.5rem;
+  transition: 0.3s linear;
+}

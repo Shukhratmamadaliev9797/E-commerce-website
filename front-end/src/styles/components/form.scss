@@ -1,0 +1,58 @@
+.form {
+  width: 50%;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  border-radius: 5px;
+  background-color: #f8f5f1;
+
+  &__title {
+    text-align: center;
+    color: $color-title;
+    font-size: 4rem;
+    margin: 2rem 0;
+  }
+  &__inputBox {
+    width: 90%;
+
+    margin: 1.5rem auto;
+  }
+  &__radioBox {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: $color-dark-grey;
+  }
+  &__input {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.7rem 0.8rem;
+    transition: all 2s;
+    transform-origin: left;
+    outline: none;
+    &-radio {
+      margin-right: 2rem;
+    }
+    &:focus {
+      border-color: $color-title;
+    }
+  }
+
+  &__radio {
+    margin-left: 0.5rem;
+    text-align: center;
+    &__label {
+      font-size: 1.5rem;
+      color: $color-dark-grey;
+      text-align: center;
+    }
+  }
+}

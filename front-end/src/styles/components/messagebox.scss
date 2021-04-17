@@ -1,0 +1,21 @@
+.alert {
+  padding: 1.3rem;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-radius: 5px;
+  height: 5rem;
+  &__error {
+    color: rgb(129, 40, 40);
+    background-color: #eb9898;
+  }
+  &__info {
+    background-color: #4bd8c3;
+    color: #021f1a;
+  }
+  &__success {
+    background-color: #81b214;
+    color: #021f1a;
+  }
+}

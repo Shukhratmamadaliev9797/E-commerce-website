@@ -1,0 +1,38 @@
+.btn {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ddd;
+  outline: none;
+  display: block;
+
+  border-radius: 5px;
+  color: #181d1d;
+  transition: all 0.5s;
+  &__yellow {
+    background-color: #f4d160;
+    width: 100%;
+    &:hover {
+      background-color: #c2970b;
+    }
+  }
+  &__red {
+    background-color: $color-light-red;
+    &:hover {
+      background-color: $color-dark-red;
+    }
+  }
+  &__yellow0 {
+    background-color: #f4d160;
+
+    &:hover {
+      background-color: #c2970b;
+    }
+  }
+
+  &__green0 {
+    color: #fff;
+    background-color: #046582;
+    &:hover {
+      background-color: #064a5f;
+    }
+  }
+}

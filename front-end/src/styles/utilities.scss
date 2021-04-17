@@ -1,0 +1,32 @@
+.error-container {
+  height: 80vh;
+}
+
+.success {
+  color: #206a5d;
+}
+
+.error {
+  color: $color-light-red;
+}
+.badge {
+  background-color: $color-light-red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 2rem;
+}
+select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 3rem;
+  color: $color-title;
+}

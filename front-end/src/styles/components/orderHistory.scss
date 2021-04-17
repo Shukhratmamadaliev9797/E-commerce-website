@@ -1,0 +1,48 @@
+.orderHistory {
+  &__box {
+    width: 95%;
+    margin: 0 auto;
+  }
+  &__card {
+    border: 1px solid #ddd;
+    width: 90%;
+    display: grid;
+    grid-template-rows: min-content min-content;
+    margin: 2rem auto;
+    border: 1px solid #ddd;
+    &-top {
+      border-bottom: 1px solid #ddd;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: space-around;
+      background-color: #caf7e3;
+      span {
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        color: #798777;
+      }
+    }
+    &-bottom {
+      padding: 2rem 1rem;
+      h3 {
+        color: #444644;
+        font-size: 2rem;
+        margin: 1rem 2rem;
+      }
+      &-generalInfo {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    &-items {
+      display: grid;
+      grid-template-columns: 80% 20%;
+
+      &-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

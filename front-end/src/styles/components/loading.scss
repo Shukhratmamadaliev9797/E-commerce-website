@@ -1,0 +1,84 @@
+.loading {
+  width: 100%;
+  height: 80vh;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  &__container {
+    width: 50rem;
+    height: 20rem;
+    display: grid;
+    place-items: center;
+  }
+
+  &__box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  &__l {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    margin: 0 1.5rem;
+
+    &-1 {
+      --index: 0;
+    }
+    &-2 {
+      --index: 1;
+    }
+    &-3 {
+      --index: 2;
+    }
+    &-4 {
+      --index: 3;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 2px rgba($color: #000000, $alpha: 0.1);
+    }
+
+    &::after {
+      transform: translateY(-500%);
+      animation: fall_after 2s cubic-bezier(0.75, -0.4, 0, 1.6) infinite;
+      animation-delay: calc(1s - (0.15s * (var(--index))));
+    }
+    &::before {
+      transform: translateY(0%);
+      animation: fall_before 2s cubic-bezier(0.75, -0.4, 0, 1.6) infinite;
+      animation-delay: calc(1s - (0.15s * (var(--index))));
+    }
+    &-1::before,
+    &-1::after {
+      background: linear-gradient(to bottom, #faa000 0, #dc6302 100%);
+    }
+    &-2::before,
+    &-2::after {
+      background: linear-gradient(to bottom, #fd0020 0, #c10018 100%);
+    }
+    &-3::before,
+    &-3::after {
+      background: linear-gradient(to bottom, #00aefc 0, #007bb2 100%);
+    }
+    &-4::before,
+    &-4::after {
+      background: linear-gradient(to bottom, #a800fd 0, #4f1dd4 100%);
+    }
+  }
+}

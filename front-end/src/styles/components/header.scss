@@ -1,0 +1,35 @@
+.header {
+  &__container {
+    grid-area: header;
+    background-color: #e4fbff;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+
+    background-attachment: fixed;
+  }
+
+  &__videoBox {
+    grid-column: 2/-1;
+
+    &-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__contentBox {
+    text-align: center;
+    margin-top: 9rem;
+
+    &-title {
+      font-size: 8rem;
+      font-family: "Indie Flower", cursive;
+      color: #435560;
+      text-transform: uppercase;
+    }
+    &-subtitle {
+      color: #9e9d89;
+    }
+  }
+}
