@@ -15,7 +15,9 @@ import OrderScreen from "../pages/OrderScreen";
 import OrderHistoryScreen from "../pages/OrderHistoryScreen";
 import ProfileScreen from "../pages/ProfileScreen";
 import UpdateProfileScreen from "../pages/UpdateProfileScreen";
+import AdminProductListScreen from "../pages/AdminProductListScreen";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 const App = () => {
   return (
@@ -37,6 +39,11 @@ const App = () => {
           path="/updateprofile"
           exact
           component={UpdateProfileScreen}
+        />
+        <AdminRoute
+          path="/productslist"
+          exact
+          component={AdminProductListScreen}
         />
         <Footer />
       </div>

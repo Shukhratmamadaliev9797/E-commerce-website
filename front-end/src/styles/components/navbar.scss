@@ -36,6 +36,7 @@
         &:hover > .navbar__dropdown {
           opacity: 1;
           z-index: 1;
+          visibility: visible;
           top: 6.68rem;
         }
       }
@@ -45,6 +46,9 @@
     text-decoration: none;
     color: #f4f9f9;
     font-size: 1.7rem;
+    i {
+      margin-right: 0.5rem;
+    }
   }
 
   &__dropdown {
@@ -57,15 +61,11 @@
       rgba(0, 107, 141, 1) 0%,
       rgba(0, 69, 91, 1) 90%
     );
-
+    visibility: hidden;
     opacity: 0;
     transition: all 0.2s linear;
     li {
       cursor: pointer;
     }
   }
-}
-.fas {
-  margin-right: 0.5rem;
-  transition: 0.3s linear;
 }

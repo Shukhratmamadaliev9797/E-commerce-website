@@ -24,6 +24,7 @@ export default function Navbar() {
         <ul className="navbar__menu-items">
           <li>
             <Link className="navbar__menu-link" to="/cart">
+              <i className="fas fa-shopping-cart"></i>
               Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
@@ -35,7 +36,7 @@ export default function Navbar() {
             {userInfo ? (
               <>
                 <Link className="navbar__menu-link" to="/profile">
-                  <i class="fas fa-user-circle"></i>
+                  <i className="fas fa-user-circle"></i>
                   {userInfo.name}
                 </Link>
                 <ul className="navbar__dropdown">
@@ -72,7 +73,7 @@ export default function Navbar() {
             {userInfo && userInfo.isAdmin && (
               <>
                 <Link className="navbar__menu-link" to="/profile">
-                  <i class="fas fa-user-circle"></i>
+                  <i className="fas fa-user-circle"></i>
                   Admin
                 </Link>
                 <ul className="navbar__dropdown">
@@ -82,7 +83,7 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/products" className="navbar__menu-link">
+                    <Link to="/productslist" className="navbar__menu-link">
                       Products
                     </Link>
                   </li>
