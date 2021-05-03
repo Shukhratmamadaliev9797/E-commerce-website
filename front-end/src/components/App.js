@@ -18,6 +18,8 @@ import UpdateProfileScreen from "../pages/UpdateProfileScreen";
 import AdminProductListScreen from "../pages/AdminProductListScreen";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import ProductEditScreen from "../pages/ProductEditScreen";
+import OrderListScreen from "../pages/OrderListScreen";
 
 const App = () => {
   return (
@@ -26,6 +28,11 @@ const App = () => {
         <Navbar />
         <Route path="/" exact component={HomeScreen}></Route>
         <Route path="/product/:id" exact component={ProductScreen}></Route>
+        <Route
+          path="/product/:id/edit"
+          exact
+          component={ProductEditScreen}
+        ></Route>
         <Route path="/cart/:id?" exact component={CartScreen} />
         <Route path="/signin" exact component={SignInScreen} />
         <Route path="/register" exact component={RegisterScreen} />
@@ -45,6 +52,7 @@ const App = () => {
           exact
           component={AdminProductListScreen}
         />
+        <AdminRoute path="/orderlist" exact component={OrderListScreen} />
         <Footer />
       </div>
     </BrowserRouter>

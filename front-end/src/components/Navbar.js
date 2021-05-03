@@ -88,7 +88,7 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar__menu-link" to="/">
+                    <Link className="navbar__menu-link" to="/orderlist">
                       Orders
                     </Link>
                   </li>

@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { createProduct, listProducts } from "../actions/productActions";
+import {
+  createProduct,
+  deleteProduct,
+  listProducts,
+} from "../actions/productActions";
 import Button from "../components/Button";
 import Loading from "../components/Loading";
 import MessageBox from "../components/MessageBox";
-import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
+import {
+  PRODUCT_CREATE_RESET,
+  PRODUCT_DELETE_RESET,
+} from "../constants/productConstants";
 
 export default function ProductList(props) {
   const productList = useSelector((state) => state.productList);
@@ -19,16 +26,28 @@ export default function ProductList(props) {
     success: successCreate,
     product: createdProduct,
   } = productCreate;
+
+  const productDelete = useSelector((state) => state.productDelete);
+  const {
+    loading: loadingDelete,
+    error: errorDelete,
+    success: successDelete,
+  } = productDelete;
   useEffect(() => {
     if (successCreate) {
       dispatch({ type: PRODUCT_CREATE_RESET });
       props.history.push(`/product/${createdProduct._id}/edit`);
     }
+    if (successDelete) {
+      dispatch({ type: PRODUCT_DELETE_RESET });
+    }
     dispatch(listProducts());
-  }, [dispatch, createdProduct, props.history, successCreate]);
+  }, [dispatch, createdProduct, props.history, successCreate, successDelete]);
 
-  const deleteProductHandler = (e) => {
-    e.preventDefault();
+  const deleteProductHandler = (product) => {
+    if (window.confirm("Are you sure to delete ?")) {
+      dispatch(deleteProduct(product._id));
+    }
   };
 
   const createProductHandler = (e) => {
@@ -105,6 +124,8 @@ export default function ProductList(props) {
       </div>
       {loadingCreate && <Loading />}
       {errorCreate && <MessageBox className="error">{errorCreate}</MessageBox>}
+      {loadingDelete && <Loading />}
+      {errorDelete && <MessageBox className="error">{errorDelete}</MessageBox>}
       {loading ? (
         <Loading />
       ) : error ? (
