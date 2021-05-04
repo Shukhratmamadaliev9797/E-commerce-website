@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 import HomeScreen from "../pages/HomeScreen";
 import ProductScreen from "../pages/ProductScreen";
 import Footer from "./Footer";
-import "../styles/app.scss";
 import CartScreen from "../pages/CartScreen";
 import SignInScreen from "../pages/SignInScreen";
 import RegisterScreen from "../pages/RegisterScreen";
@@ -20,6 +19,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import ProductEditScreen from "../pages/ProductEditScreen";
 import OrderListScreen from "../pages/OrderListScreen";
+import "../styles/app.scss";
 
 const App = () => {
   return (
