@@ -1,16 +1,18 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Order from "../models/orderModels.js";
-import { isAdmin, isAuth } from "../util.js";
+import { isAdmin, isAdminOrSeller, isAuth } from "../util.js";
 
 const orderRouter = express.Router();
 
 orderRouter.get(
   "/",
   isAuth,
-  isAdmin,
+  isAdminOrSeller,
   expressAsyncHandler(async (req, res) => {
-    const orders = await Order.find({}).populate("user");
+    const seller = req.query.seller || "";
+    const sellerFilter = seller ? { seller } : {};
+    const orders = await Order.find({ ...sellerFilter }).populate("user");
     res.send(orders);
   })
 );
@@ -32,6 +34,7 @@ orderRouter.post(
       res.status(400).send({ message: "Cart is empty" });
     } else {
       const order = new Order({
+        seller: req.body.orderItems[0].seller,
         orderItems: req.body.orderItems,
         shippingAddress: req.body.shippingAddress,
         paymentMethod: req.body.paymentMethod,

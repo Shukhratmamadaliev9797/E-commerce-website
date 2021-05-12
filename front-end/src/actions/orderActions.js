@@ -120,14 +120,14 @@ export const myOrderHistory = () => {
   };
 };
 
-export const listOrders = () => {
+export const listOrders = ({ seller = "" }) => {
   return async (dispatch, getState) => {
     dispatch({ type: ORDER_LIST_REQUEST });
     const {
       userSignIn: { userInfo },
     } = getState();
     try {
-      const { data } = await axios.get("/api/orders", {
+      const { data } = await axios.get(`/api/orders?seller=${seller}`, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       });
       dispatch({ type: ORDER_LIST_SUCCESS, payload: data });

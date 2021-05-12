@@ -15,6 +15,7 @@ import {
 } from "../constants/productConstants";
 
 export default function ProductList(props) {
+  const sellerMode = props.match.path.indexOf("/seller") >= 0;
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
   const dispatch = useDispatch();
@@ -33,6 +34,8 @@ export default function ProductList(props) {
     error: errorDelete,
     success: successDelete,
   } = productDelete;
+  const userSignIn = useSelector((state) => state.userSignIn);
+  const { userInfo } = userSignIn;
   useEffect(() => {
     if (successCreate) {
       dispatch({ type: PRODUCT_CREATE_RESET });
@@ -41,8 +44,16 @@ export default function ProductList(props) {
     if (successDelete) {
       dispatch({ type: PRODUCT_DELETE_RESET });
     }
-    dispatch(listProducts());
-  }, [dispatch, createdProduct, props.history, successCreate, successDelete]);
+    dispatch(listProducts({ seller: sellerMode ? userInfo._id : "" }));
+  }, [
+    dispatch,
+    createdProduct,
+    props.history,
+    successCreate,
+    successDelete,
+    sellerMode,
+    userInfo,
+  ]);
 
   const deleteProductHandler = (product) => {
     if (window.confirm("Are you sure to delete ?")) {

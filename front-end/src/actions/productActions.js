@@ -17,13 +17,13 @@ import {
   PRODUCT_LIST_SUCCESS,
 } from "../constants/productConstants";
 
-export const listProducts = () => {
+export const listProducts = ({ seller = "" }) => {
   return async (dispatch) => {
     dispatch({
       type: PRODUCT_LIST_REQUEST,
     });
     try {
-      const { data } = await axios.get("/api/products");
+      const { data } = await axios.get(`/api/products?seller=${seller}`);
       dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     } catch (err) {
       dispatch({ type: PRODUCT_LIST_FAIL, payload: err.message });

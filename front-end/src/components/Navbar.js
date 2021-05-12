@@ -12,7 +12,7 @@ export default function Navbar() {
   const signOutHandler = () => {
     dispatch(signout());
   };
-
+  console.log(userInfo);
   return (
     <div className="navbar__container">
       <div className="navbar__logo">
@@ -70,6 +70,31 @@ export default function Navbar() {
             )}
           </li>
           <li>
+            {userInfo && userInfo.isSeller && (
+              <>
+                <Link className="navbar__menu-link" to="/profile">
+                  <i className="fas fa-user-circle"></i>
+                  Seller
+                </Link>
+                <ul className="navbar__dropdown">
+                  <li>
+                    <Link
+                      to="/productslist/seller"
+                      className="navbar__menu-link"
+                    >
+                      Products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="navbar__menu-link" to="/orderlist/seller">
+                      Orders
+                    </Link>
+                  </li>
+                </ul>
+              </>
+            )}
+          </li>
+          <li>
             {userInfo && userInfo.isAdmin && (
               <>
                 <Link className="navbar__menu-link" to="/profile">
@@ -93,7 +118,7 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar__menu-link" to="/">
+                    <Link className="navbar__menu-link" to="/userlist">
                       Users
                     </Link>
                   </li>

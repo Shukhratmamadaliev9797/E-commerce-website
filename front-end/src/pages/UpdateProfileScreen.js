@@ -14,6 +14,9 @@ export default function UpdateProfileScreen(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
+  const [sellerName, setSellerName] = useState("");
+  const [sellerLogo, setSellerLogo] = useState("");
+  const [sellerDescription, setSellerDescription] = useState("");
 
   const userSignIn = useSelector((state) => state.userSignIn);
   const { userInfo } = userSignIn;
@@ -37,6 +40,11 @@ export default function UpdateProfileScreen(props) {
       setCity(user.city);
       setCountry(user.country);
       setEmail(user.email);
+      if (user.seller) {
+        setSellerName(user.seller.name);
+        setSellerLogo(user.seller.logo);
+        setSellerDescription(user.seller.description);
+      }
     }
   }, [dispatch, userInfo._id, user]);
 
@@ -54,6 +62,9 @@ export default function UpdateProfileScreen(props) {
           country,
           email,
           password,
+          sellerName,
+          sellerLogo,
+          sellerDescription,
         })
       );
 
@@ -190,6 +201,49 @@ export default function UpdateProfileScreen(props) {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
+            {user.isSeller && (
+              <>
+                <div className="form__inputBox">
+                  <label className="form__label" htmlFor="sellerName">
+                    Seller name
+                  </label>
+                  <input
+                    className="form__input"
+                    type="text"
+                    id="sellerName"
+                    placeholder="Seller name..."
+                    value={sellerName}
+                    onChange={(e) => setSellerName(e.target.value)}
+                  />
+                </div>
+                <div className="form__inputBox">
+                  <label className="form__label" htmlFor="sellerLogo">
+                    Seller logo
+                  </label>
+                  <input
+                    className="form__input"
+                    type="text"
+                    id="sellerLogo"
+                    placeholder="Seller logo..."
+                    value={sellerLogo}
+                    onChange={(e) => setSellerLogo(e.target.value)}
+                  />
+                </div>
+                <div className="form__inputBox">
+                  <label className="form__label" htmlFor="sellerDescription">
+                    Seller description
+                  </label>
+                  <input
+                    className="form__input"
+                    type="text"
+                    id="sellerDescription"
+                    placeholder="Seller description..."
+                    value={sellerDescription}
+                    onChange={(e) => setSellerDescription(e.target.value)}
+                  />
+                </div>
+              </>
+            )}
             <div className="form__inputBox">
               <Button className="btn__yellow">Update</Button>
             </div>

@@ -56,6 +56,14 @@ export default function ProductScreen(props) {
           </div>
           <div className="product__actionColumn">
             <div className="product__actionBox">
+              <div className="product__actionBox-seller">
+                <span>Seller</span>
+                <span>
+                  <Link to={`/seller/${product.seller._id}`}>
+                    {product.seller.seller.name}
+                  </Link>
+                </span>
+              </div>
               <div className="product__actionBox-rating">
                 <Rating
                   rating={product.rating}
