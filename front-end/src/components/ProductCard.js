@@ -20,7 +20,7 @@ export default function productCard(props) {
         </div>
         <Rating
           className=""
-          rating={product.seller.rating}
+          rating={product.rating}
           numReviews={product.numReviews}
         />
         <div className="card__pricebox">
