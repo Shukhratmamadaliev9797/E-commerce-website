@@ -12,7 +12,7 @@ export default function Navbar() {
   const signOutHandler = () => {
     dispatch(signout());
   };
-  console.log(userInfo);
+
   return (
     <div className="navbar__container">
       <div className="navbar__logo">

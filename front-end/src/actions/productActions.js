@@ -15,6 +15,9 @@ import {
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
+  PRODUCT_TOPLIST_REQUEST,
+  PRODUCT_TOPLIST_SUCCESS,
+  PRODUCT_TOPLIST_FAIL,
 } from "../constants/productConstants";
 
 export const listProducts = ({ seller = "" }) => {
@@ -125,6 +128,24 @@ export const deleteProduct = (productId) => {
             ? error.response.data.message
             : error.message,
       });
+    }
+  };
+};
+
+export const listTopProducts = ({ seller = "" }) => {
+  return async (dispatch) => {
+    dispatch({
+      type: PRODUCT_TOPLIST_REQUEST,
+    });
+    try {
+      const { data } = await axios.get(`/api/products/top-products`);
+      dispatch({ type: PRODUCT_TOPLIST_SUCCESS, payload: data });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      dispatch({ type: PRODUCT_TOPLIST_FAIL, payload: message });
     }
   };
 };

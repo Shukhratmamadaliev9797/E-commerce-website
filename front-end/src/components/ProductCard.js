@@ -4,7 +4,7 @@ import Rating from "./Rating";
 
 export default function productCard(props) {
   const { product } = props;
-  console.log(product);
+
   return (
     <div key={product._id} className="card">
       <div className="card__imagebox">

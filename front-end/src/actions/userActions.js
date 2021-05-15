@@ -19,10 +19,12 @@ import {
   USER_DELETE_REQUEST,
   USER_DELETE_SUCCESS,
   USER_DELETE_FAIL,
-  USER_DELETE_RESET,
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
+  USER_TOPSELLER_LIST_REQUEST,
+  USER_TOPSELLER_LIST_SUCCESS,
+  USER_TOPSELLER_LIST_FAIL,
 } from "../constants/userConstants";
 
 export const register = (name, gender, city, country, email, password) => {
@@ -191,6 +193,22 @@ export const updateUser = (user) => {
           ? error.response.data.message
           : error.message;
       dispatch({ type: USER_UPDATE_FAIL, payload: message });
+    }
+  };
+};
+
+export const listTopSeller = () => {
+  return async (dispatch) => {
+    dispatch({ type: USER_TOPSELLER_LIST_REQUEST });
+    try {
+      const { data } = await axios.get("/api/users/top-sellers");
+      dispatch({ type: USER_TOPSELLER_LIST_SUCCESS, payload: data });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      dispatch({ type: USER_TOPSELLER_LIST_FAIL, payload: message });
     }
   };
 };

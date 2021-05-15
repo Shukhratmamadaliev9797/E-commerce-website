@@ -5,6 +5,7 @@ import { listProducts } from "../actions/productActions";
 import ProductCard from "../components/ProductCard";
 import Loading from "./Loading";
 import MessageBox from "./MessageBox";
+import TopSeller from "./TopSeller";
 
 export default function ProductList() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function ProductList() {
 
   return (
     <React.Fragment>
+      <TopSeller />
       {loading ? (
         <Loading />
       ) : error ? (

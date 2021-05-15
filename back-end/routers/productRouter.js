@@ -6,6 +6,17 @@ import { isAuth, isAdmin, isAdminOrSeller } from "../util.js";
 
 const productRouter = express.Router();
 productRouter.get(
+  "/top-products",
+  expressAsyncHandler(async (req, res) => {
+    const topProducts = await Product.find({})
+      .sort({ "product.price": -1 })
+      .limit(1);
+
+    res.send(topProducts);
+  })
+);
+
+productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
     const seller = req.query.seller || "";

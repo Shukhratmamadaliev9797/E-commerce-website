@@ -49,8 +49,8 @@ export default function SellerScreen(props) {
                 <span>
                   <Rating
                     className=""
-                    rating={user.seller.rating}
-                    numReviews={user.seller.numReviews}
+                    rating={product.rating}
+                    numReviews={product.numReviews}
                   />
                 </span>
               </div>
