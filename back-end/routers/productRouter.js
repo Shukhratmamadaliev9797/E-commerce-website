@@ -5,13 +5,15 @@ import Product from "../models/productModel.js";
 import { isAuth, isAdmin, isAdminOrSeller } from "../util.js";
 
 const productRouter = express.Router();
+
 productRouter.get(
-  "/top-products",
+  "/top-producs",
   expressAsyncHandler(async (req, res) => {
     const topProducts = await Product.find({})
-      .sort({ "product.price": -1 })
-      .limit(1);
-
+      .sort({
+        rating: -1,
+      })
+      .limit(10);
     res.send(topProducts);
   })
 );

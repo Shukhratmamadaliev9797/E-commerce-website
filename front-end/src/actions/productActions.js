@@ -132,13 +132,13 @@ export const deleteProduct = (productId) => {
   };
 };
 
-export const listTopProducts = ({ seller = "" }) => {
+export const listTopProducts = () => {
   return async (dispatch) => {
     dispatch({
       type: PRODUCT_TOPLIST_REQUEST,
     });
     try {
-      const { data } = await axios.get(`/api/products/top-products`);
+      const { data } = await axios.get(`/api/products/top-producs`);
       dispatch({ type: PRODUCT_TOPLIST_SUCCESS, payload: data });
     } catch (error) {
       const message =

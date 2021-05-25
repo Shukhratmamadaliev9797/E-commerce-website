@@ -6,6 +6,7 @@ import Rating from "../components/Rating";
 import Button from "../components/Button";
 import Loading from "../components/Loading";
 import MessageBox from "../components/MessageBox";
+import TopProducts from "../components/TopProducts";
 
 export default function ProductScreen(props) {
   const dispatch = useDispatch();
