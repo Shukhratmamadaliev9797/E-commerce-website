@@ -25,9 +25,9 @@ export default function productCard(props) {
         />
         <div className="card__pricebox">
           <span className="card-price">{`£${product.price}`}</span>
-          <Link to={`/seller/${product.seller._id}`}>
+          {/* <Link to={`/seller/${product.seller._id}`}>
             {product.seller.name}
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
