@@ -4,7 +4,6 @@ import { listProducts } from "../actions/productActions";
 import ProductCard from "../components/ProductCard";
 import Loading from "./Loading";
 import MessageBox from "./MessageBox";
-import TopProducts from "./TopProducts";
 
 export default function ProductList() {
   const dispatch = useDispatch();

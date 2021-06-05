@@ -1,19 +1,31 @@
+.swiper {
+  margin: 7rem 0rem;
+  text-align: center;
+  h1 {
+    color: #393e46;
+    font-family: "Alfa Slab One", cursive;
+    font-size: 3rem;
+  }
+  &__images {
+    height: 40vh;
+  }
+}
+
 .swiper__container {
-  height: 40vh;
+  height: 50vh;
+  margin: 2rem 0;
+  // background: red;
   width: 100%;
 }
 .swiper-container {
   width: 100%;
   height: 100%;
-  background-color: #ddd;
+  // background-color: #ddd;
 }
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
-  background: #fff;
-  margin: 1rem;
-
+  width: 18vw !important;
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -27,11 +39,11 @@
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }

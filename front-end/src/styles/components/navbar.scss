@@ -1,71 +1,75 @@
 .navbar {
-  &__container {
-    grid-area: navbar;
-    background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
-      rgba(0, 107, 141, 1) 0%,
-      rgba(0, 69, 91, 1) 90%
-    );
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  border-bottom: 1px solid #ddd;
+  &__logo {
+    width: 13rem;
   }
-
-  &__logo-link {
-    text-decoration: none;
-    color: #f4f9f9;
-    font-size: 3.5rem;
-    font-weight: bold;
-    font-family: "Indie Flower", cursive;
-    span {
-      color: #cc561e;
+  &__search {
+    button {
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      font-size: 1.5rem;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      outline: none;
     }
+    input {
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      font-size: 1.5rem;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      width: 30vw;
+      outline: none;
+    }
+  }
+  &__badge {
+    position: absolute;
+    top: -0.5rem;
+    right: -1rem;
+    background-color: $color-light-red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0.2rem 0.7rem;
+    font-size: 1.5rem;
+    position: absolute;
   }
   &__menu {
-    display: flex;
-    &-items {
+    ul {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: row;
+
       li {
         position: relative;
-        padding: 2rem 2rem;
-        margin-right: 2rem;
-        &:hover > .navbar__dropdown {
-          opacity: 1;
-          z-index: 1;
-          visibility: visible;
-          top: 6.68rem;
+        padding: 1rem;
+        margin-right: 1rem;
+
+        &:hover ul li {
+          animation: topIn 0.2s linear forwards;
+          z-index: 1222;
+        }
+        ul {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+
+          li {
+            opacity: 0;
+            margin-bottom: 1rem;
+            transition: all 1s linear;
+          }
+        }
+        a {
+          color: #393e46;
+          i {
+            margin-right: 1rem;
+          }
         }
       }
-    }
-  }
-  &__menu-link {
-    text-decoration: none;
-    color: #f4f9f9;
-    font-size: 1.7rem;
-    i {
-      margin-right: 0.5rem;
-    }
-  }
-
-  &__dropdown {
-    position: absolute;
-    width: 17rem;
-    top: 8rem;
-    right: -4rem;
-    background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
-      rgba(0, 107, 141, 1) 0%,
-      rgba(0, 69, 91, 1) 90%
-    );
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.2s linear;
-    li {
-      cursor: pointer;
     }
   }
 }

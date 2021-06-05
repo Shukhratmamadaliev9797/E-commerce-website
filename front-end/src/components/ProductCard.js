@@ -15,7 +15,9 @@ export default function productCard(props) {
       <div className="card__content">
         <div className="card__textbox">
           <Link to={`/product/${product._id}`}>
-            <h2 className="card__textbox-title">{product.name}</h2>
+            <h2 className="card__textbox-title">
+              {product.name.substring(0, 10) + "..."}
+            </h2>
           </Link>
         </div>
         <Rating
