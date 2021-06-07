@@ -10,12 +10,14 @@
     grid-template-rows: min-content min-content;
     margin: 2rem auto;
     border: 1px solid #ddd;
+    border-radius: 0.8rem;
+    overflow: hidden;
     &-top {
       border-bottom: 1px solid #ddd;
       padding: 2rem 1rem;
       display: flex;
       justify-content: space-around;
-      background-color: #caf7e3;
+      background-color: #ddd;
       span {
         text-transform: uppercase;
         font-size: 1.5rem;

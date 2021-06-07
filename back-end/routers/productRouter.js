@@ -21,10 +21,42 @@ productRouter.get(
 productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
+    const name = req.query.name || "";
     const seller = req.query.seller || "";
+    const category = req.query.category || "";
+    const nameFilter = name ? { name: { $regex: name, $options: "i" } } : {};
     const sellerFilter = seller ? { seller } : {};
-    const products = await Product.find({ ...sellerFilter }).populate("seller");
+    const categoryFilter = category ? { category } : {};
+    const products = await Product.find({
+      ...sellerFilter,
+      ...nameFilter,
+      ...categoryFilter,
+    }).populate("seller");
     res.send(products);
+  })
+);
+
+productRouter.get(
+  "/categories",
+  expressAsyncHandler(async (req, res) => {
+    const categories = await Product.find().distinct("category");
+    res.send(categories);
+  })
+);
+
+productRouter.get(
+  "/related-products/:id",
+  expressAsyncHandler(async (req, res) => {
+    const products = await Product.find();
+    const product = await Product.findById(req.params.id);
+    const relatedProducts = products.filter(
+      (p) => p.category === product.category
+    );
+    if (relatedProducts) {
+      res.send(relatedProducts);
+    } else {
+      res.status(404).send({ message: "Product Not Found" });
+    }
   })
 );
 productRouter.get(

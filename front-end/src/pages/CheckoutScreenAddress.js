@@ -37,10 +37,13 @@ export default function CheckoutScreenAddress(props) {
 
   return (
     <div>
+      <div className="form__header">
+        <h1>Shipping address</h1>
+      </div>
       <CheckoutSteps step1 step2></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1 className="form__title">Shipping address</h1>
+          <h1 className="form__title">Shipping form</h1>
         </div>
 
         <div className="form__inputBox">

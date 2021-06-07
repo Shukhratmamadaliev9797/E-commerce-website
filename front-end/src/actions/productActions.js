@@ -18,18 +18,40 @@ import {
   PRODUCT_TOPLIST_REQUEST,
   PRODUCT_TOPLIST_SUCCESS,
   PRODUCT_TOPLIST_FAIL,
+  PRODUCT_CATEGORY_LIST_REQUEST,
+  PRODUCT_CATEGORY_LIST_SUCCESS,
+  PRODUCT_CATEGORY_LIST_FAIL,
+  PRODUCT_RELATED_LIST_REQUEST,
+  PRODUCT_RELATED_LIST_SUCCESS,
+  PRODUCT_RELATED_LIST_FAIL,
 } from "../constants/productConstants";
 
-export const listProducts = ({ seller = "" }) => {
+export const listProducts = ({ seller = "", name = "", category = "" }) => {
   return async (dispatch) => {
     dispatch({
       type: PRODUCT_LIST_REQUEST,
     });
     try {
-      const { data } = await axios.get(`/api/products?seller=${seller}`);
+      const { data } = await axios.get(
+        `/api/products?seller=${seller}&name=${name}&category=${category}`
+      );
       dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     } catch (err) {
       dispatch({ type: PRODUCT_LIST_FAIL, payload: err.message });
+    }
+  };
+};
+
+export const listProductsCategories = () => {
+  return async (dispatch) => {
+    dispatch({
+      type: PRODUCT_CATEGORY_LIST_REQUEST,
+    });
+    try {
+      const { data } = await axios.get(`/api/products/categories`);
+      dispatch({ type: PRODUCT_CATEGORY_LIST_SUCCESS, payload: data });
+    } catch (err) {
+      dispatch({ type: PRODUCT_CATEGORY_LIST_FAIL, payload: err.message });
     }
   };
 };
@@ -146,6 +168,24 @@ export const listTopProducts = () => {
           ? error.response.data.message
           : error.message;
       dispatch({ type: PRODUCT_TOPLIST_FAIL, payload: message });
+    }
+  };
+};
+
+export const relatedListProducts = (productId) => {
+  return async (dispatch) => {
+    dispatch({ type: PRODUCT_RELATED_LIST_REQUEST, payload: productId });
+    try {
+      const { data } = await axios.get(
+        `/api/products/related-products/${productId}`
+      );
+      dispatch({ type: PRODUCT_RELATED_LIST_SUCCESS, payload: data });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      dispatch({ type: PRODUCT_RELATED_LIST_FAIL, payload: message });
     }
   };
 };

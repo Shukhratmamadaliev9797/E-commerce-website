@@ -8,7 +8,20 @@
 
   border-radius: 5px;
   background-color: #f8f5f1;
-
+  &__header {
+    background-image: linear-gradient(
+      109.6deg,
+      rgba(62, 161, 219, 1) 11.2%,
+      rgba(93, 52, 236, 1) 100.2%
+    );
+    padding: 2rem;
+    h1 {
+      color: #fff;
+      font-family: "Alfa Slab One", cursive;
+      font-size: 3.5rem;
+    }
+    margin-bottom: 2rem;
+  }
   &__title {
     text-align: center;
     color: $color-title;
@@ -19,6 +32,13 @@
     width: 90%;
 
     margin: 1.5rem auto;
+    input {
+      height: 4rem;
+      font-size: 1.5rem;
+    }
+    label {
+      font-size: 1.5rem;
+    }
   }
   &__radioBox {
     display: flex;
@@ -34,12 +54,14 @@
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 5px;
+
     padding: 0.7rem 0.8rem;
     transition: all 2s;
     transform-origin: left;
     outline: none;
     &-radio {
       margin-right: 2rem;
+      font-size: 5rem;
     }
     &:focus {
       border-color: $color-title;

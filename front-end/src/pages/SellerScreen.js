@@ -78,64 +78,69 @@ export default function SellerScreen(props) {
   };
 
   return (
-    <div className="seller__container">
-      <div className="seller__info">
-        {loading ? (
-          <Loading />
-        ) : error ? (
-          <MessageBox className="error">{error}</MessageBox>
-        ) : (
-          <div className="seller__info-container">
-            <ul>
-              <li>
-                <img
-                  className="profile__picture"
-                  src={
-                    user.gender === "male"
-                      ? male
-                      : user.gender === "female"
-                      ? female
-                      : ""
-                  }
-                  alt="userAvatar"
-                />
-              </li>
-              <li>
-                <h2>{user.seller.name}</h2>
-              </li>
-              <li>
-                <h3>{user.seller.logo}</h3>
-              </li>
-              <li>
-                <Rating
-                  className=""
-                  rating={user.seller.rating}
-                  numReviews={user.seller.numReviews}
-                />
-              </li>
-              <li>
-                <p> {user.seller.description}</p>
-              </li>
-              <li>
-                {user.city}, {user.country}
-              </li>
-              <li>
-                <a className="btn btn__yellow" href={`mailto:${user.email}`}>
-                  Contact seller
-                </a>
-              </li>
-            </ul>
-          </div>
-        )}
+    <div>
+      <div className="form__header">
+        <h1>Seller</h1>
       </div>
-      <div className="seller__products">
-        {loadingProducts ? (
-          <Loading />
-        ) : errorProducts ? (
-          <MessageBox className="error">{error}</MessageBox>
-        ) : (
-          renderSellerProducts()
-        )}
+      <div className="seller__container">
+        <div className="seller__info">
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <MessageBox className="error">{error}</MessageBox>
+          ) : (
+            <div className="seller__info-container">
+              <ul>
+                <li>
+                  <img
+                    className="profile__picture"
+                    src={
+                      user.gender === "male"
+                        ? male
+                        : user.gender === "female"
+                        ? female
+                        : ""
+                    }
+                    alt="userAvatar"
+                  />
+                </li>
+                <li>
+                  <h2>{user.seller.name}</h2>
+                </li>
+                <li>
+                  <h3>{user.seller.logo}</h3>
+                </li>
+                <li>
+                  <Rating
+                    className=""
+                    rating={user.seller.rating}
+                    numReviews={user.seller.numReviews}
+                  />
+                </li>
+                <li>
+                  <p> {user.seller.description}</p>
+                </li>
+                <li>
+                  {user.city}, {user.country}
+                </li>
+                <li>
+                  <a className="btn btn__yellow" href={`mailto:${user.email}`}>
+                    Contact seller
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+        <div className="seller__products">
+          {loadingProducts ? (
+            <Loading />
+          ) : errorProducts ? (
+            <MessageBox className="error">{error}</MessageBox>
+          ) : (
+            renderSellerProducts()
+          )}
+        </div>
       </div>
     </div>
   );

@@ -81,9 +81,12 @@ export default function UpdateProfileScreen(props) {
         <MessageBox className="error">{error}</MessageBox>
       ) : (
         <div className="signIn__container">
+          <div className="form__header">
+            <h1>Update Profile</h1>
+          </div>
           <form className="form" onSubmit={updateHandler}>
             <div>
-              <h1 className="form__title">Update Profile</h1>
+              <h1 className="form__title">Update Form</h1>
             </div>
             {loadingUpdate && <Loading />}
             {errorUpdate && (

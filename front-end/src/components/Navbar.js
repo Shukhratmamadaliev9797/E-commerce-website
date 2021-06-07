@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Route } from "react-router";
 import { Link } from "react-router-dom";
+import { listProductsCategories } from "../actions/productActions";
 import { signout } from "../actions/userActions";
+import SearchBox from "./SearchBox";
 
 export default function Navbar() {
   const cart = useSelector((state) => state.cart);
@@ -12,132 +15,21 @@ export default function Navbar() {
   const signOutHandler = () => {
     dispatch(signout());
   };
-  /* <div className="navbar__container">
-      <div className="navbar__logo">
-        <Link className="navbar__logo-link" to="/">
-          S<span>h</span>opify
-        </Link>
-      </div>
-      <div className="navbar__menu">
-        <ul className="navbar__menu-items">
-          <li>
-            <Link className="navbar__menu-link" to="/cart">
-              <i className="fas fa-shopping-cart"></i>
-              Cart
-              {cartItems.length > 0 && (
-                <span className="badge">{cartItems.length}</span>
-              )}
-            </Link>
-          </li>
 
-          <li>
-            {userInfo ? (
-              <>
-                <Link className="navbar__menu-link" to="/profile">
-                  <i className="fas fa-user-circle"></i>
-                  {userInfo.name}
-                </Link>
-                <ul className="navbar__dropdown">
-                  <li>
-                    <Link to="/profile" className="navbar__menu-link">
-                      Profile
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/orderhistory" className="navbar__menu-link">
-                      Order history
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="navbar__menu-link"
-                      to="/"
-                      onClick={signOutHandler}
-                    >
-                      Sign out
-                    </Link>
-                  </li>
-                </ul>
-              </>
-            ) : (
-              <li>
-                <Link className="navbar__menu-link" to="/signin">
-                  Sign In
-                </Link>
-              </li>
-            )}
-          </li>
-          <li>
-            {userInfo && userInfo.isSeller && (
-              <>
-                <Link className="navbar__menu-link" to="/profile">
-                  <i className="fas fa-user-circle"></i>
-                  Seller
-                </Link>
-                <ul className="navbar__dropdown">
-                  <li>
-                    <Link
-                      to="/productslist/seller"
-                      className="navbar__menu-link"
-                    >
-                      Products
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="navbar__menu-link" to="/orderlist/seller">
-                      Orders
-                    </Link>
-                  </li>
-                </ul>
-              </>
-            )}
-          </li>
-          <li>
-            {userInfo && userInfo.isAdmin && (
-              <>
-                <Link className="navbar__menu-link" to="/profile">
-                  <i className="fas fa-user-circle"></i>
-                  Admin
-                </Link>
-                <ul className="navbar__dropdown">
-                  <li>
-                    <Link to="/dashboard" className="navbar__menu-link">
-                      Dashboard
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/productslist" className="navbar__menu-link">
-                      Products
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="navbar__menu-link" to="/orderlist">
-                      Orders
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="navbar__menu-link" to="/userlist">
-                      Users
-                    </Link>
-                  </li>
-                </ul>
-              </>
-            )}
-          </li>
-        </ul>
-      </div>
-    </div> */
-
+  useEffect(() => {
+    dispatch(listProductsCategories());
+  }, [dispatch]);
   return (
     <div className="navbar">
       <div className="navbar__logo">
         <Link to="/">
-          <img src="./images/cart4.gif" alt="logo" />
+          <img src="/images/cart4.gif" alt="logo" />
         </Link>
       </div>
       <div className="navbar__search">
-        <input type="text" placeholder="Search..." />
-        <button>Search</button>
+        <Route
+          render={({ history }) => <SearchBox history={history}></SearchBox>}
+        ></Route>
       </div>
       <div className="navbar__menu">
         <ul>
@@ -172,10 +64,10 @@ export default function Navbar() {
                 </ul>
               </>
             ) : (
-              <li>
-                <i className="fas fa-user-circle"></i>
-                <Link to="/signin">Sign In</Link>
-              </li>
+              <>
+                <i class="fas fa-sign-in-alt"></i>
+                <Link to="/signin"> Sign In</Link>
+              </>
             )}
           </li>
           <li>

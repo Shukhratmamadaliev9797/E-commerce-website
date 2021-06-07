@@ -39,6 +39,9 @@ export default function RegisterScreen(props) {
 
   return (
     <div className="signIn__container">
+      <div className="form__header">
+        <h1>Register</h1>
+      </div>
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1 className="form__title">Create Account</h1>

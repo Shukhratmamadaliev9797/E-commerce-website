@@ -19,6 +19,9 @@ export default function PaymentMethodScreen(props) {
   };
   return (
     <div>
+      <div className="form__header">
+        <h1>Checkout</h1>
+      </div>
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>

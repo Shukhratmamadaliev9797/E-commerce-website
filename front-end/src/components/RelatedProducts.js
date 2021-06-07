@@ -1,29 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listTopProducts } from "../actions/productActions";
+import { relatedListProducts } from "../actions/productActions";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Autoplay } from "swiper/core";
-import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css";
 import Loading from "./Loading";
 import MessageBox from "./MessageBox";
-import Rating from "./Rating";
 import { Link } from "react-router-dom";
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css";
 
-SwiperCore.use([Pagination, Autoplay]);
-export default function TopProducts() {
+export default function RelatedProducts(props) {
+  SwiperCore.use([Pagination, Autoplay]);
   const dispatch = useDispatch();
-  const topProductsList = useSelector((state) => state.topProductsList);
-  const {
-    loading: loadingTop,
-    error: errorTop,
-    products: productsTop,
-  } = topProductsList;
-  useEffect(() => {
-    dispatch(listTopProducts());
-  }, [dispatch]);
+  const productRelatedList = useSelector((state) => state.productRelatedList);
+  const { loading, error, products } = productRelatedList;
 
-  const renderTopProducts = () => {
+  const renderRelatedProducts = () => {
     return (
       <Swiper
         slidesPerView={100}
@@ -51,7 +43,7 @@ export default function TopProducts() {
         className="mySwipe"
       >
         {[
-          productsTop.map((product) => {
+          products.map((product) => {
             return (
               <SwiperSlide>
                 <div className="swiper__images">
@@ -59,13 +51,7 @@ export default function TopProducts() {
                     <img src={product.image} alt={product.name} />
                   </Link>
                 </div>
-                <div>
-                  <Rating
-                    className=""
-                    rating={product.rating}
-                    numReviews={product.numReviews}
-                  />
-                </div>
+                <div>{product.name}</div>
               </SwiperSlide>
             );
           }),
@@ -73,17 +59,19 @@ export default function TopProducts() {
       </Swiper>
     );
   };
-
+  useEffect(() => {
+    dispatch(relatedListProducts(props.product._id));
+  }, [dispatch, props]);
   return (
     <div className="swiper">
-      <h1>The Best Selling Products</h1>
-      <p>We always want you to buy best products</p>
-      {loadingTop ? (
+      <h1>Related Products</h1>
+
+      {loading ? (
         <Loading />
-      ) : errorTop ? (
-        <MessageBox className="error">{errorTop}</MessageBox>
+      ) : error ? (
+        <MessageBox className="error">{error}</MessageBox>
       ) : (
-        <div className="swiper__container">{renderTopProducts()}</div>
+        <div className="swiper__container">{renderRelatedProducts()}</div>
       )}
     </div>
   );

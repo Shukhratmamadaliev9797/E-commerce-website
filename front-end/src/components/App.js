@@ -23,8 +23,8 @@ import "../styles/app.scss";
 import UserListScreen from "../pages/UserListScreen";
 import UserEditScreen from "../pages/UserEditScreen";
 import SellerRoute from "./SellerRoute";
-
 import SellerScreen from "../pages/SellerScreen";
+import SearchScreen from "../pages/SearchScreen";
 
 const App = () => {
   return (
@@ -51,6 +51,17 @@ const App = () => {
           <Route path="/orderhistory" exact component={OrderHistoryScreen} />
           <Route path="/profile" exact component={ProfileScreen} />
           <Route path="/seller/:id" exact component={SellerScreen} />
+          <Route path="/search/name/:name?" exact component={SearchScreen} />
+          <Route
+            path="/search/category/:category"
+            exact
+            component={SearchScreen}
+          />
+          <Route
+            path="/search/category/:category/name/:name"
+            exact
+            component={SearchScreen}
+          />
           <PrivateRoute
             path="/updateprofile"
             exact

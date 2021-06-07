@@ -41,6 +41,9 @@ export default function PlaceOrderScreen(props) {
 
   return (
     <div>
+      <div className="form__header">
+        <h1>Review Orders</h1>
+      </div>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <div className="placeorder__container">
         <div className="placeorder__details">

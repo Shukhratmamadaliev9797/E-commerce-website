@@ -79,8 +79,10 @@ export default function OrderScreen(props) {
     <MessageBox className="error">{error}</MessageBox>
   ) : (
     <div>
-      <div className="placeorder__container">
+      <div className="form__header">
         <h1>Order: #{order._id}</h1>
+      </div>
+      <div className="placeorder__container">
         <div className="placeorder__details">
           <div className="placeorder__details-box">
             <h3>Shipping</h3>
@@ -180,9 +182,15 @@ export default function OrderScreen(props) {
               </>
             )}
             {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
-              <Button onClick={deliverHandler} className="btn__yellow">
-                Deliver Order
-              </Button>
+              <>
+                {loadingDeliver && <span>Loading...</span>}
+                {errorDeliver && (
+                  <MessageBox className="error">{errorDeliver}</MessageBox>
+                )}
+                <Button onClick={deliverHandler} className="btn__yellow">
+                  Deliver Order
+                </Button>
+              </> //  {loadingDeliver && <Loading />}
             )}
           </div>
         </div>

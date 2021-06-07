@@ -112,8 +112,8 @@ export default function OrderListScreen(props) {
   };
   return (
     <div className="productList">
-      <div className="productList__titleBox">
-        <h1 className="title">Order list</h1>
+      <div className="form__header">
+        <h1>Order List</h1>
       </div>
       {loadingDelete && <Loading />}
       {errorDelete && <MessageBox className="error">{errorDelete}</MessageBox>}

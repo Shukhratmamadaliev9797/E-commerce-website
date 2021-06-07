@@ -127,8 +127,10 @@ export default function ProductList(props) {
 
   return (
     <div className="productList">
+      <div className="form__header">
+        <h1>Product List</h1>
+      </div>
       <div className="productList__titleBox">
-        <h1 className="title">Product lists</h1>
         <Button className="btn__green0" onClick={createProductHandler}>
           Create Product
         </Button>

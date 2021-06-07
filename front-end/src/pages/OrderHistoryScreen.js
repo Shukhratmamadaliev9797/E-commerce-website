@@ -83,13 +83,15 @@ export default function OrderHistoryScreen(props) {
   };
   return (
     <div className="orderHistory">
-      <h1 className="title">Order History</h1>
+      <div className="form__header">
+        <h1>Profile</h1>
+      </div>
       {loading ? (
         <Loading></Loading>
       ) : error ? (
         <MessageBox className="error">{error}</MessageBox>
       ) : (
-        <div className="orderHistory__box">{renderOrderHistoryCard()}</div>
+        <div className="orderHistory__box">{renderOrderHistoryCard()} </div>
       )}
     </div>
   );

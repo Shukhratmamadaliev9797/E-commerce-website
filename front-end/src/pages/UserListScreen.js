@@ -102,8 +102,8 @@ export default function UserListScreen(props) {
 
   return (
     <div className="productList">
-      <div className="productList__titleBox">
-        <h1 className="title">User list</h1>
+      <div className="form__header">
+        <h1>User List</h1>
       </div>
       {loadingDelete && <MessageBox>User Deleting...</MessageBox>}
       {errorDelete && <MessageBox className="error">{errorDelete}</MessageBox>}

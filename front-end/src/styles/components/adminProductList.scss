@@ -3,10 +3,10 @@
   flex-direction: column;
   &__titleBox {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     width: 90%;
-    margin: 0 auto;
+    margin: 2rem auto;
   }
   &__card {
     display: grid;
