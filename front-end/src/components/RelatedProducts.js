@@ -51,7 +51,7 @@ export default function RelatedProducts(props) {
                     <img src={product.image} alt={product.name} />
                   </Link>
                 </div>
-                <div>{product.name}</div>
+                <div>{product.name.substring(0, 30)}...</div>
               </SwiperSlide>
             );
           }),

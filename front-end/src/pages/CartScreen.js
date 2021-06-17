@@ -54,7 +54,7 @@ export default function CartScreen(props) {
                     className="cart__item-name"
                     to={`/product/${item.product}`}
                   >
-                    {item.name}
+                    {item.name.substring(0, 50)}...
                   </Link>
                   <select
                     className=""

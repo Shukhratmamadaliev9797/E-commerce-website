@@ -16,7 +16,7 @@ export default function productCard(props) {
         <div className="card__textbox">
           <Link to={`/product/${product._id}`}>
             <h2 className="card__textbox-title">
-              {product.name.substring(0, 10) + "..."}
+              {product.name.substring(0, 30) + "..."}
             </h2>
           </Link>
         </div>
@@ -27,8 +27,11 @@ export default function productCard(props) {
         />
         <div className="card__pricebox">
           <span className="card-price">{`£${product.price}`}</span>
+        </div>
+        <div>
+          Seller:{" "}
           <Link to={`/seller/${product.seller._id}`}>
-            {product.seller.name}
+            {product.seller.seller.name}
           </Link>
         </div>
       </div>

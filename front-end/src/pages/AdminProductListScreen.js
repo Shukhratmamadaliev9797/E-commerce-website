@@ -73,7 +73,9 @@ export default function ProductList(props) {
           </div>
           <div className="productList__card-details">
             <div className="productList__card-details-top">
-              <Link to={`product/${product._id}`}>{product.name}</Link>
+              <Link to={`/product/${product._id}`}>
+                {product.name.substring(0, 100)}...
+              </Link>
             </div>
             <div className="productList__card-details-bottom">
               <div className="productList__card-detail">

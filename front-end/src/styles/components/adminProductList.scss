@@ -26,6 +26,9 @@
     &-details {
       display: grid;
       grid-template-rows: repeat(2, 1fr);
+      &-link {
+        color: #000 !important;
+      }
       &-top {
         display: flex;
         align-items: center;
@@ -43,6 +46,7 @@
     &-detail {
       display: flex;
       flex-direction: column;
+
       span:nth-child(1) {
         font-size: 1.5rem;
         color: $color-dark-grey;

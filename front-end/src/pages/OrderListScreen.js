@@ -7,6 +7,7 @@ import MessageBox from "../components/MessageBox";
 import male from "../images/male.png";
 import female from "../images/female.png";
 import { ORDER_DELETE_RESET } from "../constants/orderConstants";
+import { Link } from "react-router-dom";
 
 export default function OrderListScreen(props) {
   const sellerMode = props.match.path.indexOf("/seller") >= 0;
@@ -57,13 +58,20 @@ export default function OrderListScreen(props) {
               <div className="productList__card-detail">
                 <span>Order Name</span>
                 {order.orderItems.map((item) => (
-                  <span>{item.name}</span>
+                  <span key={item._id}>
+                    <Link
+                      className="productList__card-details-link"
+                      to={`/product/${item.product}`}
+                    >
+                      {item.name.substring(0, 50)}...
+                    </Link>
+                  </span>
                 ))}
               </div>
               <div className="productList__card-detail">
                 <span>Order ID</span>
                 {order.orderItems.map((item) => (
-                  <span>#{item._id}</span>
+                  <span key={item._id}>#{item._id}</span>
                 ))}
               </div>
               <div className="productList__card-detail">

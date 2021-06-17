@@ -42,16 +42,19 @@ export default function OrderHistoryScreen(props) {
                 {order.orderItems.map((item) => {
                   return (
                     <div key={item.product} className="cart__item">
-                      <img
-                        className="cart__item-img"
-                        src={item.image}
-                        alt={item.name}
-                      />
+                      <Link to={`product/${item._id}`}>
+                        <img
+                          className="cart__item-img"
+                          src={item.image}
+                          alt={item.name}
+                        />
+                      </Link>
+
                       <Link
                         className="cart__item-name"
                         to={`/product/${item.product}`}
                       >
-                        {item.name}
+                        {item.name.substring(0, 50)}...
                       </Link>
                       <span>{item.qty}</span>
                       <span>{item.price}£</span>

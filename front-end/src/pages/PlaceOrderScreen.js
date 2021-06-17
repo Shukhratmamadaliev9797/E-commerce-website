@@ -84,7 +84,7 @@ export default function PlaceOrderScreen(props) {
                     className="cart__item-name"
                     to={`/product/${item.product}`}
                   >
-                    {item.name}
+                    {item.name.substring(0, 50)}...
                   </Link>
                   <span>{item.qty}</span>
                   <span>{item.price}£</span>

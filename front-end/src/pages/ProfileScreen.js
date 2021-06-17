@@ -13,7 +13,7 @@ export default function ProfileScreen(props) {
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
   const dispatch = useDispatch();
-  console.log(user);
+
   useEffect(() => {
     dispatch(detailsUser(userInfo._id));
   }, [dispatch, userInfo._id]);
@@ -47,15 +47,15 @@ export default function ProfileScreen(props) {
               <div className="profile__personalBox">
                 <ul>
                   <li>
-                    <i class="fas fa-map-marker-alt"></i> {user.city},{" "}
+                    <i className="fas fa-map-marker-alt"></i> {user.city},{" "}
                     {user.country}
                   </li>
                   <li>
-                    <i class="fas fa-envelope"></i>
+                    <i className="fas fa-envelope"></i>
                     {user.email}
                   </li>
                   <li>
-                    <i class="fas fa-user-circle"></i> Created at:{" "}
+                    <i className="fas fa-user-circle"></i> Created at:{" "}
                     {user.createdAt.substring(0, 10)}
                   </li>
                   <li>
