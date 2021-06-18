@@ -1,7 +1,7 @@
+@import "./mixins";
 @import "./variables";
 @import "./base";
 @import "./layout";
-@import "./mixins";
 @import "./utilities";
 @import "./animations";
 @import "./components/navbar";
@@ -24,3 +24,4 @@
 @import "./components/sellerPage";
 @import "./components/swiper";
 @import "./components/searchScreen";
+@import "./components/responsiveNavbar";

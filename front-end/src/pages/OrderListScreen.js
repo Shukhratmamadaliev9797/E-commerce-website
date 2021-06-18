@@ -71,7 +71,7 @@ export default function OrderListScreen(props) {
               <div className="productList__card-detail">
                 <span>Order ID</span>
                 {order.orderItems.map((item) => (
-                  <span key={item._id}>#{item._id}</span>
+                  <span key={item._id}>#****{item._id.substring(20, 24)}</span>
                 ))}
               </div>
               <div className="productList__card-detail">

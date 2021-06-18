@@ -14,6 +14,9 @@
   &__container {
     display: grid;
     grid-template-columns: 15% 85%;
+    @include respond(800px) {
+      grid-template-columns: 1fr;
+    }
   }
   &__filter {
     padding: 0rem 1rem;
@@ -22,6 +25,10 @@
       font-family: "Alfa Slab One", cursive;
     }
     ul {
+      @include respond(800px) {
+        display: flex;
+        justify-content: space-around;
+      }
       li {
         margin-bottom: 1rem;
         a {

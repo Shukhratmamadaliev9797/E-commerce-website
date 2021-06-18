@@ -15,4 +15,7 @@
   height: 10rem;
   border-radius: 50%;
   overflow: hidden;
+  @include respond(800px) {
+    margin: 0 auto;
+  }
 }

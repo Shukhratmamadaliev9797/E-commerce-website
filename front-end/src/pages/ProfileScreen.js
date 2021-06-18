@@ -78,41 +78,41 @@ export default function ProfileScreen(props) {
           </div>
           <div className="profile">
             <div className="profile__pictureBox">
-              <div className="profile__picture">
-                <img
-                  src={
-                    image
-                      ? image
-                      : user.image
-                      ? user.image
-                      : user.gender === "male"
-                      ? male
-                      : user.gender === "female"
-                      ? female
-                      : ""
-                  }
-                  alt="userAvatar"
-                />
-              </div>
-              {loadingUpload && "uploading image..."}
-              {errorUpload && errorUpload}
               <form onSubmit={submitHandler}>
-                <div className="profile__addPicture">
-                  <label htmlFor="addPhoto">
-                    <i className="fas fa-camera"></i>
-                  </label>
-                  <input
-                    id="addPhoto"
-                    type="file"
-                    onChange={uploadFileHandler}
+                <div className="profile__picture">
+                  <img
+                    src={
+                      image
+                        ? image
+                        : user.image
+                        ? user.image
+                        : user.gender === "male"
+                        ? male
+                        : user.gender === "female"
+                        ? female
+                        : ""
+                    }
+                    alt="userAvatar"
                   />
-                  <input
-                    type="text"
-                    onChange={(e) => setImage(e.target.value)}
-                    value={image}
-                    placeholder="image"
-                  />
+                  <div className="profile__addPicture">
+                    <label htmlFor="addPhoto">
+                      <i className="fas fa-camera"></i>
+                    </label>
+                    <input
+                      id="addPhoto"
+                      type="file"
+                      onChange={uploadFileHandler}
+                    />
+                    <input
+                      type="text"
+                      onChange={(e) => setImage(e.target.value)}
+                      value={image}
+                      placeholder="image"
+                    />
+                  </div>
                 </div>
+                {loadingUpload && "uploading image..."}
+                {errorUpload && errorUpload}
 
                 <div className="profile__saveButton">
                   {save && <button type="submit">Save</button>}

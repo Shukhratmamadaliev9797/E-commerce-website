@@ -42,7 +42,9 @@
   &__menu {
     ul {
       display: flex;
-
+      @include respond(1200px) {
+        display: none;
+      }
       li {
         position: relative;
         padding: 1rem;
@@ -76,6 +78,12 @@
           }
         }
       }
+    }
+  }
+  &__responsive {
+    display: none;
+    @include respond(1200px) {
+      display: block;
     }
   }
 }

@@ -21,7 +21,10 @@
       span {
         text-transform: uppercase;
         font-size: 1.5rem;
-        color: #798777;
+        color: #4c524c;
+        @include respond(900px) {
+          font-size: 1rem;
+        }
       }
     }
     &-bottom {

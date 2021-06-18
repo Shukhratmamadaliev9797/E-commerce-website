@@ -8,7 +8,18 @@
   border: 1px solid #ddd;
   @include glassMorphims;
   background-color: #fff;
-
+  @include respond(1000px) {
+    grid-template-rows: 250px repeat(3, min-content);
+    grid-template-columns: 260px;
+  }
+  @include respond(600px) {
+    grid-template-rows: 220px repeat(3, min-content);
+    grid-template-columns: 190px;
+  }
+  @include respond(400px) {
+    grid-template-rows: 180px repeat(3, min-content);
+    grid-template-columns: 150px;
+  }
   &__imagebox {
     grid-area: image;
     border-top-left-radius: 8px;

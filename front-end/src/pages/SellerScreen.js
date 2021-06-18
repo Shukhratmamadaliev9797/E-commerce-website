@@ -93,15 +93,16 @@ export default function SellerScreen(props) {
               <ul>
                 <li>
                   <img
-                    className="profile__picture"
                     src={
-                      user.gender === "male"
+                      user.image
+                        ? user.image
+                        : user.gender === "male"
                         ? male
                         : user.gender === "female"
                         ? female
                         : ""
                     }
-                    alt="userAvatar"
+                    alt={user.name}
                   />
                 </li>
                 <li>

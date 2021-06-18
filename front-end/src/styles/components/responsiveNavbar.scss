@@ -1,0 +1,82 @@
+.responsiveNavbar {
+  position: absolute;
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  padding: 0 3rem;
+  width: 100%;
+  height: 12vh;
+  z-index: 1000;
+  @include respond(500px) {
+    height: 40%;
+  }
+  transition: all 0.5s linear;
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    @include respond(500px) {
+      width: 80%;
+      margin: 0 auto;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+    }
+    li {
+      position: relative;
+      padding: 1rem;
+      margin-right: 1rem;
+      button {
+        padding: 0.5rem;
+        width: 5rem;
+        height: 5rem;
+        font-size: 4rem;
+        background-color: transparent;
+        border: none;
+        transform: rotate(45deg);
+      }
+      &:hover ul {
+        opacity: 1;
+        z-index: 1;
+        @include respond(500px) {
+          position: relative;
+        }
+      }
+      &:hover ul li {
+        animation: topIn 0.2s linear forwards;
+        z-index: 1222;
+      }
+      ul {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        opacity: 0;
+        transition: all 0.5s linear;
+        z-index: -10;
+
+        li {
+          opacity: 0;
+          margin-bottom: 1rem;
+          transition: all 0.5s linear;
+        }
+      }
+      a {
+        color: #393e46;
+        i {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.responsiveNavbar {
+  &-inactive {
+    animation: topOut 0.2s linear forwards;
+  }
+  &-active {
+    animation: topIn 0.2s linear forwards;
+  }
+}

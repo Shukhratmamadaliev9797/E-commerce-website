@@ -17,17 +17,16 @@
     grid-template-columns: 60vw 38vw;
     grid-template-rows: 1fr;
     padding: 2rem;
-  }
-
-  &__items {
-    grid-column: 1/2;
+    @include respond(1200px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__item {
     display: flex;
     padding: 1rem;
     margin-bottom: 1.5rem;
-
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     border: 1px solid #ddd;
@@ -41,7 +40,6 @@
     }
   }
   &__action {
-    grid-column: 2/-1;
     &-box {
       border: 1px solid #ddd;
       padding: 2rem;
@@ -49,6 +47,9 @@
       margin: 0rem auto;
       border-radius: 5px;
       background-color: $color-grey;
+      @include respond(1200px) {
+        width: 100%;
+      }
       &-total {
         margin-bottom: 2rem;
       }

@@ -19,9 +19,18 @@
     padding: 1rem;
     grid-gap: 2rem;
     border-radius: 5px;
+    @include respond(800px) {
+      grid-template-columns: 1fr;
+      & > * {
+        margin-bottom: 1rem;
+      }
+    }
     &-img {
       width: 10rem;
       height: 10rem;
+      @include respond(800px) {
+        margin: 0 auto;
+      }
     }
     &-details {
       display: grid;
@@ -40,6 +49,7 @@
       }
       &-bottom {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
       }
     }
@@ -50,12 +60,14 @@
       span:nth-child(1) {
         font-size: 1.5rem;
         color: $color-dark-grey;
+        margin: 0rem 1rem;
       }
       span:nth-child(2),
       span:nth-child(3),
       span:nth-child(4),
       span:nth-child(5) {
         font-size: 1.7rem;
+        margin: 0rem 1rem;
       }
     }
 

@@ -8,6 +8,10 @@
       rgba(93, 52, 236, 1) 100.2%
     );
     padding: 6rem 2rem;
+
+    @include respond(800px) {
+      grid-template-columns: 1fr;
+    }
     &__text {
       display: grid;
       place-items: center;
@@ -20,6 +24,9 @@
           color: #fff;
           font-family: "Alfa Slab One", cursive;
           font-size: 5rem;
+          @include respond(800px) {
+            font-size: 4rem;
+          }
         }
         p {
           color: #ddd;
@@ -28,6 +35,10 @@
       }
     }
     &__picture {
+      @include respond(800px) {
+        width: 80%;
+        margin: 0 auto;
+      }
       img {
         -webkit-box-reflect: below -8rem linear-gradient(transparent, transparent, rgba(141, 140, 140, 0.1));
       }
