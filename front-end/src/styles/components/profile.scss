@@ -4,6 +4,7 @@
   margin: 1rem auto;
   grid-template-rows: min-content min-content;
   &__pictureBox {
+    position: relative;
     border-radius: 5px;
     display: flex;
     background-color: #eee;
@@ -13,21 +14,68 @@
     padding: 3rem;
     margin-bottom: 2rem;
     border: 1px solid #ddd;
-    img {
-      width: 25rem;
-      margin: 2rem;
-      border-radius: 50%;
-    }
+
     h2 {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       color: #798777;
+    }
+  }
+  &__picture {
+    width: 27rem;
+    height: 27rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
+  &__addPicture {
+    position: absolute;
+    font-size: 3rem;
+    border-radius: 50%;
+    background-color: #fff;
+    font-weight: bold;
+    width: 5rem;
+    height: 5rem;
+    top: 23rem;
+    right: 55rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+      right: -17rem;
+      position: absolute;
+      opacity: 0;
+    }
+    label {
+      position: absolute;
+      i {
+        color: #585f57;
+      }
+    }
+  }
+  &__saveButton {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    button {
+      padding: 0.5rem 1.5rem;
+      font-size: 2rem;
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      background-color: #fff;
     }
   }
   &__detailsBox {
     display: grid;
     grid-template-columns: 40% 65%;
     background-color: #eee;
-    border: 1px solid #ddd;
+
     border-radius: 5px;
 
     li {

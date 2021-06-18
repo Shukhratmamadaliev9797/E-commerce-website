@@ -29,10 +29,12 @@ export default function UserListScreen(props) {
     return users.map((user) => {
       return (
         <div className="productList__card" key={user._id}>
-          <div className="productList__card-img">
+          <div className="userList__card-img">
             <img
               src={
-                user.gender === "male"
+                user.image
+                  ? user.image
+                  : user.gender === "male"
                   ? male
                   : user.gender === "female"
                   ? female

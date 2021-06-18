@@ -21,6 +21,7 @@ import {
   USER_TOPSELLER_LIST_REQUEST,
   USER_TOPSELLER_LIST_SUCCESS,
   USER_UPDATE_FAIL,
+  USER_UPDATE_IMAGE_REQUEST,
   USER_UPDATE_PROFILE_FAIL,
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_RESET,
@@ -126,6 +127,19 @@ export const userUpdateReducer = (state = {}, action) => {
       return { loading: false, error: action.payload };
     case USER_UPDATE_RESET:
       return {};
+    default:
+      return state;
+  }
+};
+
+export const userUpdatePictureReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_UPDATE_IMAGE_REQUEST:
+      return { loading: true };
+    case USER_UPDATE_PROFILE_SUCCESS:
+      return { loading: false, success: true };
+    case USER_UPDATE_PROFILE_FAIL:
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

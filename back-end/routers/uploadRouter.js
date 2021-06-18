@@ -3,7 +3,7 @@ import express from "express";
 import { isAuth } from "../util.js";
 import multerS3 from "multer-s3";
 import aws from "aws-sdk";
-import config from "../config.js";
+
 import dotenv from "dotenv";
 const uploadRouter = express.Router();
 
@@ -23,16 +23,17 @@ const upload = multer({ storage });
 uploadRouter.post("/", isAuth, upload.single("image"), (req, res) => {
   res.send(`/${req.file.path}`);
 });
-aws.config.update({
+
+const s3 = new aws.S3({
   region: "eu-west-2",
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   AWS_SDK_LOAD_CONFIG: 1,
 });
-const s3 = new aws.S3();
+
 const storageS3 = multerS3({
   s3,
-  bucket: "shukhrat-e-commerce-bucket",
+  bucket: "e-commerce-shukhrat-bucket",
   acl: "public-read",
   contentType: multerS3.AUTO_CONTENT_TYPE,
   key(req, file, cb) {

@@ -53,6 +53,7 @@ userRouter.post(
     const user = new User({
       name: req.body.name,
       gender: req.body.gender,
+      image: "",
       city: req.body.city,
       country: req.body.country,
       email: req.body.email,
@@ -63,6 +64,7 @@ userRouter.post(
       _id: createdUser._id,
       name: createdUser.name,
       gender: createdUser.gender,
+      image: "",
       city: createdUser.city,
       country: createdUser.country,
       email: createdUser.email,
@@ -118,6 +120,23 @@ userRouter.put(
         token: generateToken(updatedUser),
       });
     }
+  })
+);
+
+userRouter.put(
+  "/pictureUpdate",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id);
+    if (user) {
+      user.image = req.body.image || user.image;
+    }
+    const updatePicture = await user.save();
+    res.send({
+      _id: updatePicture._id,
+      image: updatePicture.image,
+      token: generateToken(updatePicture),
+    });
   })
 );
 

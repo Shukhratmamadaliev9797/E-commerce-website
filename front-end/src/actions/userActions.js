@@ -25,6 +25,9 @@ import {
   USER_TOPSELLER_LIST_REQUEST,
   USER_TOPSELLER_LIST_SUCCESS,
   USER_TOPSELLER_LIST_FAIL,
+  USER_UPDATE_IMAGE_REQUEST,
+  USER_UPDATE_IMAGE_SUCCESS,
+  USER_UPDATE_IMAGE_FAIL,
 } from "../constants/userConstants";
 
 export const register = (name, gender, city, country, email, password) => {
@@ -128,6 +131,27 @@ export const updateUserProfile = (user) => {
           ? error.response.data.message
           : error.message;
       dispatch({ type: USER_UPDATE_PROFILE_FAIL, payload: message });
+    }
+  };
+};
+
+export const updateImage = (image) => {
+  return async (dispatch, getState) => {
+    dispatch({ type: USER_UPDATE_IMAGE_REQUEST, payload: image });
+    const {
+      userSignIn: { userInfo },
+    } = getState();
+    try {
+      const { data } = await axios.put(`/api/users/pictureUpdate`, image, {
+        headers: { Authorization: `Bearer ${userInfo.token}` },
+      });
+      dispatch({ type: USER_UPDATE_IMAGE_SUCCESS, payload: data });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      dispatch({ type: USER_UPDATE_IMAGE_FAIL, payload: message });
     }
   };
 };
