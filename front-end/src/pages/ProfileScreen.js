@@ -68,11 +68,6 @@ export default function ProfileScreen(props) {
         <MessageBox className="error">{error}</MessageBox>
       ) : (
         <div>
-          {successUpdate && (
-            <MessageBox className="success">
-              Image successfully uploaded!
-            </MessageBox>
-          )}
           <div className="form__header">
             <h1>Profile</h1>
           </div>
