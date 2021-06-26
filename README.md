@@ -10,6 +10,9 @@ Password: admin
 Seller: seller@gmail.com  
 Password: seller
 
+To make payment you can use fake paypal account.  
+paypal account: sb-ox27p5799218@business.example.com.   
+parol: LeZ/ko6v
 
 ## Demo
 
